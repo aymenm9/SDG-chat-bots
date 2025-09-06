@@ -1,0 +1,8 @@
+services:
+  portfolio_chatbot:
+    image: SDG_chatbots
+    build: .
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
