@@ -1,8 +1,8 @@
-from typing import Union
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from schemas import Massage
-from chat_bot import generate_response
+from chat_bots import SDG_chatbot
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -19,5 +19,5 @@ def read_root():
 
 @app.post("/api/chatbot/sdg")
 async def chatbot(msg: Massage)-> Massage:
-    await generate_response(msg)
-    return msg
+    new_msg = await SDG_chatbot(msg)
+    return new_msg

@@ -68,7 +68,7 @@ sdg_info_tools = {
 "Podcast_partners":"not availbel for now",
 }
 
-def get_infos(tool_names: list) -> list:
+def get_infos(tool_names: list) -> str:
     """
     Retrieves information about a list of tools.
 
@@ -81,8 +81,11 @@ def get_infos(tool_names: list) -> list:
                     present in the `sdg_info_tools` dictionary.
 
     Returns:
-        A list of strings, where each string contains the information
-        for the requested tool. For example, if `tool_names` is `['about_SDG']`,
-        the function will return `['we are a student scientific and development group at the University of Setif']`.
+        A string containing the information for each requested tool, formatted as:
+        "tool_name: tool_info\n" for each tool in the input list.
     """
-    return [sdg_info_tools[tool_name] for tool_name in tool_names]
+    print(f"Retrieving infos for tools: {tool_names}")
+    infos = ''
+    for tool_name in tool_names:
+        infos +=  tool_name + ': ' + sdg_info_tools[tool_name] + '\n'
+    return infos

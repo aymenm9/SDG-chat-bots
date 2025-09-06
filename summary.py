@@ -16,6 +16,7 @@ config = types.GenerateContentConfig(
     )
 
 async def generate_summary(msg: Massage)-> Massage:
+    print("Generating summary...")
 
     contents = [
         types.Content(
@@ -42,5 +43,4 @@ async def generate_summary(msg: Massage)-> Massage:
     new_summary = response.text
     msg.summary = new_summary
     msg.history = []
-    print(new_summary)
     return msg
