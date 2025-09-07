@@ -1,13 +1,14 @@
 from google.genai import types
 from schemas import Massage, Msg
 from summary import generate_summary
-async def build_config(system_instruction:str, tools:types.Tool)-> types.GenerateContentConfig:
+async def build_config(system_instruction:str, tools:types.Tool = None)-> types.GenerateContentConfig:
     print('Building config...')
     config = types.GenerateContentConfig(
     thinking_config=types.ThinkingConfig(thinking_budget=0), # Disables thinking
     system_instruction = system_instruction,
-    tools=[tools]
     )
+    if tools:
+        config.tools = tools
     return config
 
 

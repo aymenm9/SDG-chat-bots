@@ -89,3 +89,18 @@ def get_infos(tool_names: list) -> str:
     for tool_name in tool_names:
         infos +=  tool_name + ': ' + sdg_info_tools[tool_name] + '\n'
     return infos
+
+def get_sdg_info() -> str:
+    """
+    Retrieves information about a specific SDG.
+
+
+    Returns:
+        A string containing the information for the requested SDG, or an error message
+        if the SDG is not found.
+    """
+    info = ''
+    info_list = ['about_SDG', 'SDG_activities', 'SDG_methodology', 'SDG_mission', 'how_to_join_SDG', 'SDG_membership_benefits', 'SDG_team_members', 'SDG_upcoming_events', 'SDG_location', 'SDG_operating_time', 'SDG_membership_requirements', 'SDG_member_required_capacities', 'SDG_member_responsibilities']
+    for info_name in info_list:
+        info +=  info_name + ': ' + sdg_info_tools[info_name] + '\n'
+    return info

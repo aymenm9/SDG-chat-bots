@@ -6,23 +6,20 @@ from schemas import Massage
 load_dotenv()
 
 client = genai.Client()
-config = types.GenerateContentConfig(
-    thinking_config=types.ThinkingConfig(thinking_budget=0), # Disables thinking
-    system_instruction = """
-        Your task is to summarize a conversation for a large language model. You will be provided with a previous summary and the latest messages.
 
-        Create a new, concise summary that combines the old summary with the new messages. The final summary should contain only the essential information needed to maintain context for the chatbot's next response, focusing on key facts and the user's recent intent.
-        """
-    )
 
 async def generate_summary(msg: Massage)-> Massage:
     print("Generating summary...")
-
+    config = types.GenerateContentConfig(
+    system_instruction = """
+    Your task is to create a new, concise summary that combines a previous summary with the latest messages. The final summary should contain the essential information needed to maintain context.
+    """
+    )
     contents = [
         types.Content(
             role="model",
             parts=[
-                types.Part.from_text(text=f"masseges summary:{msg.summary}"),
+                types.Part.from_text(text=f"old summary:{msg.summary if msg.summary else 'No previous summary yet.'}"),
             ],
         )
     ]
@@ -35,12 +32,22 @@ async def generate_summary(msg: Massage)-> Massage:
                 ],
             ),
         )
+        print(f"Added to summary contents: role={m.role}, content={m.content}")
+    contents.append(
+        types.Content(
+            role="user",
+            parts=[
+                types.Part.from_text(text="Based on the previous summary and the new messages, generate an updated summary that captures the key points and context of the conversation so far, prioritize the last messages context."),
+            ],
+        ),
+    )
     response = client.models.generate_content(
-        model='gemini-2.0-flash-lite',
+        model='gemini-1.5-flash',
         contents=contents,
         config=config,
     )
     new_summary = response.text
     msg.summary = new_summary
     msg.history = []
+    print(f"\n\nresponse received: {response}\n\n")
     return msg

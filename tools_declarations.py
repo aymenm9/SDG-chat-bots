@@ -1,4 +1,4 @@
-
+'''
 # the ai should sent a valid list of info to loock for so tool_names should be in the tools dict keys
 get_sdg_infos_declarations = {
     "name": "get_infos",
@@ -16,3 +16,4 @@ get_sdg_infos_declarations = {
         "required": ["tool_names"],
     },
 }
+'''
