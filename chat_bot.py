@@ -3,6 +3,7 @@ from google.genai import types
 from dotenv import load_dotenv
 from schemas import Massage
 from tools import get_infos
+from models_manager import Models_manager
 load_dotenv()
 
 client = genai.Client()
@@ -10,7 +11,7 @@ client = genai.Client()
 async def generate_response(contents: list[types.Content], config: types.GenerateContentConfig) -> str:
     print("Generating response...")
     response = client.models.generate_content(
-        model='gemini-2.0-flash-lite',
+        model=Models_manager.get_model(),
         contents=contents,
         config=config,
     )
@@ -29,7 +30,7 @@ async def generate_response(contents: list[types.Content], config: types.Generat
             )
             print(f"Contents after function call: {function_response}")
             response = client.models.generate_content(
-                model='gemini-2.0-flash-lite',
+                model=Models_manager.get_model(),
                 contents=contents,
                 config=config,
             )

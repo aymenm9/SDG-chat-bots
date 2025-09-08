@@ -25,7 +25,7 @@ async def build_tools(tools_declarations:list)-> types.Tool:
 
 async def build_content(message:Massage)-> list[types.Content]:
     print('Building content...')
-    if len(message.history) >= 8:
+    if len(message.history) >= 16:
         message = await generate_summary(message)
     contents = [
         types.Content(

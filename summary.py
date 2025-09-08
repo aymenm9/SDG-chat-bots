@@ -2,7 +2,7 @@ from google import genai
 from google.genai import types
 from dotenv import load_dotenv
 from schemas import Massage
-
+from models_manager import Models_manager
 load_dotenv()
 
 client = genai.Client()
@@ -41,13 +41,17 @@ async def generate_summary(msg: Massage)-> Massage:
             ],
         ),
     )
-    response = client.models.generate_content(
-        model='gemini-1.5-flash',
-        contents=contents,
-        config=config,
-    )
-    new_summary = response.text
-    msg.summary = new_summary
-    msg.history = []
-    print(f"\n\nresponse received: {response}\n\n")
+    if Models_manager.check_models_availability(Models_manager.models['gemini-1.5-flash']):
+        Models_manager.add_model_call('gemini-1.5-flash')
+        response = client.models.generate_content(
+            model='gemini-1.5-flash', # use only 1.5 flash for summary as its not that important
+            contents=contents,
+            config=config,
+        )
+        new_summary = response.text
+        msg.summary = new_summary
+        msg.history = []
+        print(f"\n\nresponse received: {response}\n\n")
+    else:
+        print("No available model for summary generation.")
     return msg
