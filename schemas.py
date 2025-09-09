@@ -11,6 +11,6 @@ class Msg(BaseModel):
     content: str
 class Massage(BaseModel):
     summary: Optional[str]=None
-    history: list[Msg]=Field(default_factory=list, max_items=9)
+    history: list[Msg]=Field(default_factory=list)
     message: str
     

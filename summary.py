@@ -32,7 +32,6 @@ async def generate_summary(msg: Massage)-> Massage:
                 ],
             ),
         )
-        print(f"Added to summary contents: role={m.role}, content={m.content}")
     contents.append(
         types.Content(
             role="user",

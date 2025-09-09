@@ -1,6 +1,12 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import threading
+import json
+import os
+import atexit
+
+MODELS_STATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models_state.json")
+
 def current_time()->dict:
     '''
     returns the current time in dict {day: "year/month/day" , minute: "year/month/day/hour/minute"} in PT time zone ; google use PT time zone for counting the calls for the models apis
@@ -67,17 +73,60 @@ class ModelsManager:
                 "minute_count": 0
             }
         }
+        # Load saved state if exists
+        self.load_state()
+        
+        # Register save_state to run on exit
+        atexit.register(self.save_state)
+        
         # the rank is based on max usage per minute and day, and the 1.5 as fallback
         self.models_map_rank = [
-            "gemini-2.5-flash",
             "gemini-2.5-flash-lite",
             "gemini-2.0-flash-lite",
-
+            "gemini-2.5-flash",
             "gemini-2.0-flash",
             #"gemini-2.5-pro",
             "gemini-1.5-flash"
         ]
         self.current_model: int = 0
+
+    def save_state(self):
+        """Save the current state to a JSON file"""
+
+        print(f"Saving state to {MODELS_STATE_FILE}")
+        with open(MODELS_STATE_FILE, 'w') as f:
+            json.dump(self.models, f)
+        print("State saved successfully")
+
+    def load_state(self):
+        """Load the state from JSON file if it exists and is current"""
+        if not os.path.exists(MODELS_STATE_FILE):
+            return
+            
+        try:
+            with open(MODELS_STATE_FILE, 'r') as f:
+                saved_state = json.load(f)
+            
+            current = current_time()
+            
+            # Update models with saved state if the day/minute matches
+            for model_name, saved_data in saved_state.items():
+                if model_name in self.models:
+                    model = self.models[model_name]
+                    
+                    # Restore day count if same day
+                    if saved_data['current_day'] == current['day']:
+                        model['day_count'] = saved_data['day_count']
+                        model['current_day'] = saved_data['current_day']
+                    
+                    # Restore minute count if same minute
+                    if saved_data['current_minute'] == current['minute']:
+                        model['minute_count'] = saved_data['minute_count']
+                        model['current_minute'] = saved_data['current_minute']
+        except (json.JSONDecodeError, KeyError, IOError) as e:
+            print(f"Error loading saved state: {e}")
+            # If there's any error loading the state, we'll use fresh counts
+            pass
 
     def _cleanup_counts(self, model_name: str):
         '''
