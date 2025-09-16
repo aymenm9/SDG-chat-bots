@@ -1,7 +1,7 @@
 import asyncio
 from util import build_config, build_content, build_tools, rebuild_message, build_system_instructions
-from system_instructions import SDG_SYSTEM_INSTRUCTION
-from infos import get_sdg_info, sdg_info, sdg_static_replay
+from system_instructions import SDG_SYSTEM_INSTRUCTION, PODCAST_SYSTEM_INSTRUCTION
+from infos import get_sdg_info, sdg_info, sdg_static_replay, podcast_info, podcast_static_replay
 from schemas import Massage
 from chat_bot import generate_response
 from sdg_exceptions import ModelUnavailableError, FunctionCallError
@@ -36,9 +36,6 @@ async def SDG_chatbot(msg: Massage)->Massage:
         return new_msg
 '''
 
-async def SDG_chatbot(msg: Massage)->Massage:
-    return await chatbot(msg, SDG_SYSTEM_INSTRUCTION, 'SDG', sdg_info,sdg_static_replay,None)
-
 async def chatbot(msg: Massage,system_instructions:str,name:str, infos:dict, static_replay:dict, tools:list = None)->Massage:
     try:
         if rep := msg_static_replay(msg.message,infos, static_replay):
@@ -68,3 +65,9 @@ async def chatbot(msg: Massage,system_instructions:str,name:str, infos:dict, sta
         response = "Sorry, there was an error processing your request. Please try again later."
         new_msg = await rebuild_message(msg, response)
         return new_msg
+    
+async def SDG_chatbot(msg: Massage)->Massage:
+    return await chatbot(msg, SDG_SYSTEM_INSTRUCTION, 'SDG', sdg_info,sdg_static_replay,None)
+
+async def Podcast_chatbot(msg: Massage)->Massage:
+    return await chatbot(msg, PODCAST_SYSTEM_INSTRUCTION, 'Podcast', podcast_info,podcast_static_replay,None)
