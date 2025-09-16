@@ -29,6 +29,10 @@ def read_root():
 
 
 @app.post("/api/chatbot/sdg")
-async def chatbot(msg: Massage)-> Massage:
-    new_msg = await SDG_chatbot(msg)
-    return new_msg
+async def sdg_chatbot(msg: Massage)-> Massage:
+    return await SDG_chatbot(msg)
+
+
+@app.post("/api/chatbot/event")
+async def event_chatbot(msg: Massage)-> Massage:
+    return await SDG_chatbot(msg)

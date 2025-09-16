@@ -1,17 +1,23 @@
 from google.genai import types
 from schemas import Massage, Msg
 from summary import generate_summary
-async def build_config(system_instruction:str, tools:types.Tool = None)-> types.GenerateContentConfig:
+async def build_config(system_instruction:str, tools_declarations:list = None,)-> types.GenerateContentConfig:
     print('Building config...')
     config = types.GenerateContentConfig(
     thinking_config=types.ThinkingConfig(thinking_budget=0), # Disables thinking
     system_instruction = system_instruction,
     )
-    if tools:
+    if tools_declarations:
+        tools = await build_tools(tools_declarations)
         config.tools = tools
     return config
 
-
+async def build_system_instructions(instructions:str, chatbot_infos:dict, chatbot_name:str):
+    sys_instructions = instructions + f'the information about {chatbot_name}: \n'
+    for key, info in chatbot_infos.items():
+        sys_instructions += f'{key} : {info},\n'
+    return sys_instructions
+    
 
 async def build_tools(tools_declarations:list)-> types.Tool:
     print('Building tools...')

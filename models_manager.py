@@ -4,7 +4,7 @@ import threading
 import json
 import os
 import atexit
-
+from sdg_exceptions import ModelUnavailableError
 MODELS_STATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models_state.json")
 
 def current_time()->dict:
@@ -171,14 +171,18 @@ class ModelsManager:
         '''
         Get the current model based on availability.
         '''
-        with self._lock:
-            current_model = self.models_map_rank[self.current_model]
-            if not self.check_models_availability(current_model):
-                self.switch_model()
+        try:
+            with self._lock:
                 current_model = self.models_map_rank[self.current_model]
-            self.add_model_call(current_model)
-            print(f"Using model: {current_model}")
-            return current_model
+                if not self.check_models_availability(current_model):
+                    self.switch_model()
+                    current_model = self.models_map_rank[self.current_model]
+                self.add_model_call(current_model)
+                print(f"Using model: {current_model}")
+                return current_model
+        except Exception as e:
+            print(f"Error getting model: {e}")
+            raise ModelUnavailableError('No available models at the moment. Please try again later.')
 
     def add_model_call(self, model_name: str):
         '''
