@@ -5,7 +5,7 @@ from schemas import Massage
 from infos import get_infos
 from models_manager import Models_manager
 from sdg_exceptions import ModelUnavailableError, FunctionCallError
-from tools import sdg_event_registration
+from tools import sll_event_registration
 load_dotenv()
 
 client = genai.Client()
@@ -37,10 +37,10 @@ async def function_call_execution(response, contents, config):
     for now we only have one function call to event registration 
     '''
     function_call = response.candidates[0].content.parts[0].function_call
-    if function_call.name == "event_registration":
+    if function_call.name == "sll_event_registration":
         args = function_call.args
         print(f"Function call detected: {function_call.name} with args {args}")
-        function_response = await sdg_event_registration(**args)
+        function_response = await sll_event_registration(**args)
         print(f"user was registered to {function_response}")
             
         return 'you were registered to ' + function_response + ' successfully'

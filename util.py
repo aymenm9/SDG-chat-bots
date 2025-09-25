@@ -9,7 +9,7 @@ async def build_config(system_instruction:str, tools_declarations:list = None,)-
     )
     if tools_declarations:
         tools = await build_tools(tools_declarations)
-        config.tools = tools
+        config.tools = [tools]
     return config
 
 async def build_system_instructions(instructions:str, chatbot_infos:dict, chatbot_name:str):
@@ -21,11 +21,8 @@ async def build_system_instructions(instructions:str, chatbot_infos:dict, chatbo
 
 async def build_tools(tools_declarations:list)-> types.Tool:
     print('Building tools...')
-    tools_list = []
-    for declaration in tools_declarations:
-        tools_list.append(declaration)
     tools = types.Tool(   
-        function_declarations=tools_list
+        function_declarations=tools_declarations
     )
     return tools
 

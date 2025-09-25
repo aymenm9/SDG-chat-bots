@@ -109,32 +109,95 @@ sdg_static_replay = {
 }
 
 event_info = {
+    "event focus": "Information Technology (IT) and Entrepreneurship",
 
+    "about the event": "The event will be held at the Skills Center from September 29 to November 22, 2025, running daily from 1:00 PM to 5:00 PM. It is dedicated to empowering university students and anyone interested in IT and Entrepreneurship. With a strong focus on innovation, community building, and sustainable development goals, the event aims to provide valuable knowledge, develop practical skills for real-world challenges, and create meaningful opportunities for networking and collaboration.",
 
-"Event_SDG_focus":"not availbel for now",
+    "event target audience": "The main audience is university students, but it is open to anyone interested in IT and Entrepreneurship.",
 
-"about_the_event":"not availbel for now",
+    "event objectives": "To provide knowledge and practical skills in both IT and Entrepreneurship.",
 
-"Event_target_audience":"not availbel for now",
+    "event location": "Skills Center",
 
-"Event_objectives":"not availbel for now",
+    "event time": "1:00 PM to 5:00 PM",
 
-"Event_registration_information":"not availbel for now",
+    "event schedule": "The event starts on September 29. Each day, workshops will be held from 1:00 PM to 5:00 PM. A detailed list of workshops is available in the shared Excel file.",
 
-"Event_location":"not availbel for now",
+    "event speakers": "Berrimi Mohammed, Skander Hamdi, Taki Torki, Akram Chennani, Brahim Mihoubi, Lamara Malek, Yacine Seha, Ztoutou Faycrl, Ghozlen Hadri, and others to be announced.",
 
-"Event_time":"not availbel for now",
-
-"Event_schedule":"not availbel for now",
-# Event speakers
-"Event_speakers":"not availbel for now",
-# Event partners
-"Event_partners":"not availbel for now",
+    "event partners": "UFAS1, Faculty of Sciences UFAS1, Redjem Studio, GDG Setif, IntellectSoft DZ, Algerie Telecom, Nesda",
 }
 
 event_static_replay = {
-
+    # Greetings
+    "hi": "Hello! I'm the official chatbot for SDG Events. How can I help you learn about our upcoming event today?",
+    "hello": "Hello! I'm the official chatbot for SDG Events. What would you like to know about our event?",
+    "hey": "Hey there! I'm here to provide information about SDG's upcoming event. What would you like to know?",
+    "good morning": "Good morning! Welcome to SDG Events. How can I assist you with event information today?",
+    "good afternoon": "Good afternoon! I'm the SDG Events chatbot. What would you like to know about our event?",
+    "good evening": "Good evening! I'm here to help with any questions about SDG's upcoming event. What would you like to know?",
+    
+    # How are you
+    "how are you": "I'm doing great and ready to help you with information about SDG's event! What would you like to know?",
+    "how are you doing": "I'm functioning well, thank you! I'm here to provide details about SDG's upcoming event. How can I help you today?",
+    "how's it going": "Everything's going well! I'm ready to help you learn about SDG's event. What information do you need?",
+    
+    # Thank you responses
+    "thank you": "You're welcome! If you have more questions about the event, feel free to ask.",
+    "thanks": "You're welcome! Do you want to know more about the event’s schedule, speakers, or location?",
+    "thank you very much": "You're very welcome! I'm always here to help with SDG event-related questions.",
+    
+    # Goodbye
+    "bye": "Goodbye! Feel free to come back anytime if you have more questions about the event.",
+    "goodbye": "Goodbye! Thank you for your interest in our event. Contact us anytime for more details!",
+    "see you": "See you later! Don't hesitate to return if you want more event information.",
+    "see you later": "See you later! Feel free to return with any event-related questions.",
+    
+    # Basic questions
+    "what can you do": "I can provide information about SDG's event including its focus, objectives, schedule, speakers, location, and how to participate. What would you like to know?",
+    "what is your purpose": "My purpose is to provide accurate information about SDG's upcoming event at the Skills Center. How can I assist you?",
+    "who are you": "I'm the official chatbot for SDG Events. I'm here to answer your questions about our upcoming event. What would you like to know?",
+    
+    # Help requests
+    "help": "I'm here to help you learn about SDG's event! You can ask me about the schedule, speakers, partners, location, or focus. What interests you?",
+    "i need help": "I'm happy to help! I can provide details about the event’s objectives, timing, and participants. What do you want to know?",
+    
+    # Sorry/Excuse me
+    "sorry": "No problem at all! How can I assist you with information about SDG's event?",
+    "excuse me": "Yes, how can I help you with information about SDG's event?",
+    
+    # Nice to meet you
+    "nice to meet you": "Nice to meet you too! I'm excited to help you learn about our upcoming event. What would you like to know?",
+    "pleased to meet you": "Pleased to meet you as well! I'm here to provide information about SDG’s event. How can I assist you today?",
+    
+    # Event-related common questions
+    "what is the event": "The event is focused on IT and Entrepreneurship, held at the Skills Center from 29 September to 22 November 2025 (daily 13:00 to 17:00). Would you like to know about the schedule or speakers?",
+    "tell me about the event": "This event empowers students and enthusiasts in IT and Entrepreneurship. It provides practical knowledge, networking opportunities, and focuses on sustainable development goals. Do you want details on the speakers or the schedule?",
+    "event information": "I can provide information about the event’s focus, objectives, target audience, schedule, speakers, partners, and location. What interests you most?",
+    "event details": "The event runs from 29 September to 22 November 2025 at the Skills Center, daily from 13:00 to 17:00. Would you like me to tell you more about the schedule or speakers?",
+    
+    # Activities and services
+    "what is the focus": "The event focuses on IT and Entrepreneurship, with an emphasis on innovation and community building.",
+    "what are the objectives": "The event’s objectives are to give knowledge in both IT and Entrepreneurship, and to develop practical skills for real-world challenges.",
+    "who is the audience": "The main audience is university students and anyone interested in IT and Entrepreneurship.",
+    "where is the event": "The event is located at the Skills Center.",
+    "when is the event": "The event runs from 29 September to 22 November 2025, every day from 13:00 to 17:00.",
+    "who are the speakers": "Speakers include Berrimi Mohammed, Skander Hamdi, Taki Torki, Akram Chennani, Brahim Mihoubi, Lamara Malek, Yacine Seha, Ztoutou Faycrl, Ghozlen Hadri, and more.",
+    "who are the partners": "Partners include UFAS1, Sciences Faculty UFAS1, Redjem Studio, GDG Setif, IntellectSoft DZ, Algerie Telecom, and Nesda.",
+    
+    # General inquiries
+    "more information": "I can tell you about the event’s focus, objectives, target audience, speakers, partners, schedule, and location. What do you want to know?",
+    "tell me more": "I'd be happy to! You can ask about the event’s focus, objectives, speakers, partners, schedule, or location. What interests you?",
+    "what else": "You can ask me about the event’s focus, target audience, objectives, schedule, speakers, or partners. Which one would you like?",
+    "anything else": "Yes! I can provide details about the event’s focus, objectives, schedule, speakers, and more. Which part do you want to know more about?",
+    
+    # What chatbot does
+    "what you do": "I provide information about SDG’s upcoming event — including its focus, objectives, audience, schedule, speakers, and partners. What would you like to know?",
+    "what do you do": "I provide event information about SDG’s activities at the Skills Center. I can tell you about the focus, schedule, speakers, and objectives. What do you want to know?",
+    "what can you tell me": "I can tell you about the event’s focus, audience, speakers, schedule, and objectives. What are you interested in?",
+    "what are you for": "I'm here to provide accurate information about SDG’s event happening from 29 September to 22 November 2025 at the Skills Center. What would you like to know?",
 }
+
 podcast_info= {
 
 "Podcast SDG focus":"acquiring knowldge from diverse local experts in several fields",

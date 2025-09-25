@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from schemas import Massage
-from chat_bots import SDG_chatbot, Podcast_chatbot
+from chat_bots import SDG_chatbot, Podcast_chatbot, EVENT_chatbot
 from contextlib import asynccontextmanager
 from models_manager import Models_manager
 
@@ -32,7 +32,10 @@ def read_root():
 async def sdg_chatbot(msg: Massage)-> Massage:
     return await SDG_chatbot(msg)
 
+@app.post("/api/chatbot/event")
+async def event_chatbot(msg: Massage)-> Massage:
+    return await EVENT_chatbot(msg)
 
 @app.post("/api/chatbot/podcast")
-async def event_chatbot(msg: Massage)-> Massage:
+async def podcast_chatbot(msg: Massage)-> Massage:
     return await Podcast_chatbot(msg)
