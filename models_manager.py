@@ -3,8 +3,10 @@ from zoneinfo import ZoneInfo
 import threading
 import json
 import os
+import dotenv
 import atexit
 from sdg_exceptions import ModelUnavailableError
+import redis
 MODELS_STATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models_state.json")
 
 def current_time()->dict:
@@ -17,8 +19,15 @@ def current_time()->dict:
         "day": pt_time.strftime("%Y/%m/%d"),
         "minute": pt_time.strftime("%Y/%m/%d/%H/%M")
     }
-
-
+dotenv.load_dotenv()
+r = redis.Redis(
+    host=os.environ["REDIS_HOST"],
+    port=int(os.environ["REDIS_PORT"]),
+    username=os.environ["REDIS_USERNAME"],
+    password=os.environ["REDIS_PASSWORD"],
+    decode_responses=True,
+    #ssl=True
+)
 class ModelsManager:
     def __init__(self):
         self._lock = threading.Lock()
@@ -91,42 +100,35 @@ class ModelsManager:
         self.current_model: int = 0
 
     def save_state(self):
-        """Save the current state to a JSON file"""
+        """Save current state to Redis"""
+        for model_name, model_data in self.models.items():
+            r.set(model_name, json.dumps(model_data))
+        print("State saved to Redis successfully")
 
-        print(f"Saving state to {MODELS_STATE_FILE}")
-        with open(MODELS_STATE_FILE, 'w') as f:
-            json.dump(self.models, f)
-        print("State saved successfully")
 
     def load_state(self):
-        """Load the state from JSON file if it exists and is current"""
-        if not os.path.exists(MODELS_STATE_FILE):
-            return
-            
-        try:
-            with open(MODELS_STATE_FILE, 'r') as f:
-                saved_state = json.load(f)
-            
-            current = current_time()
-            
-            # Update models with saved state if the day/minute matches
-            for model_name, saved_data in saved_state.items():
-                if model_name in self.models:
+        """Load state from Redis if it exists and is current"""
+        current = current_time()
+        for model_name in self.models.keys():
+            saved = r.get(model_name)
+            if saved:
+                try:
+                    saved_data = json.loads(saved)
                     model = self.models[model_name]
-                    
+
                     # Restore day count if same day
                     if saved_data['current_day'] == current['day']:
                         model['day_count'] = saved_data['day_count']
                         model['current_day'] = saved_data['current_day']
-                    
+
                     # Restore minute count if same minute
                     if saved_data['current_minute'] == current['minute']:
                         model['minute_count'] = saved_data['minute_count']
                         model['current_minute'] = saved_data['current_minute']
-        except (json.JSONDecodeError, KeyError, IOError) as e:
-            print(f"Error loading saved state: {e}")
-            # If there's any error loading the state, we'll use fresh counts
-            pass
+
+                except (json.JSONDecodeError, KeyError) as e:
+                    print(f"Error loading state for {model_name}: {e}")
+                    pass
 
     def _cleanup_counts(self, model_name: str):
         '''

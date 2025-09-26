@@ -1,5 +1,5 @@
 services:
-  portfolio_chatbot:
+  sdg_chatbots:
     image: SDG_chatbots
     build: .
     ports:
