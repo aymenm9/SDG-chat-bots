@@ -121,8 +121,172 @@ event_info = {
 
     "event time": "1:00 PM to 5:00 PM",
 
-    "event schedule": "The event starts on September 29. Each day, workshops will be held from 1:00 PM to 5:00 PM. A detailed list of workshops is available in the shared Excel file.",
-
+    "event schedule": """The event starts on September 29. Each day, workshops will be held from 1:00 PM to 5:00 PM. and will include :
+    [
+  {
+    "title": "Exploring Embedded Systems: A Rapid Introduction",
+    "description": "A 3-hour workshop introducing embedded systems, their components, architecture, and a hands-on exercise.",
+    "speakers": ["Taki Eddine"],
+    "partner": "SDG member",
+    "date": "2025-09-29",
+    "duration_hours": 3,
+    "sessions_days": 1
+  },
+  {
+    "title": "Introduction to Artificial Intelligence: Concepts and Applications",
+    "description": "A 3-hour intro to AI fundamentals, key technologies, and real-world applications.",
+    "speakers": ["Skander Hamdi"],
+    "partner": null,
+    "date": "2025-09-30",
+    "duration_hours": 3,
+    "sessions_days": 1
+  },
+  {
+    "title": "C++ Mastery: Cultivating a Computer Science Mindset",
+    "description": "Five sessions exploring C++ programming, problem-solving, and critical thinking for CS students.",
+    "speakers": ["Chenani Akram", "Taki Torki"],
+    "partner": "SDG member",
+    "date": "2025-10-01",
+    "duration_hours": 10,
+    "sessions_days": 5
+  },
+  {
+    "title": "Mastering Networking: Concepts and Practices",
+    "description": "A 9-hour, 3-session workshop covering network design, troubleshooting, and modern networking tools.",
+    "speakers": ["Yacine Seha"],
+    "partner": "algérie telecom",
+    "date": "2025-10-07",
+    "duration_hours": 9,
+    "sessions_days": 3
+  },
+  {
+    "title": "Dev Fest",
+    "description": "A full-day event featuring sessions and talks from GDG Setif.",
+    "speakers": ["GDG Speakers"],
+    "partner": "GDG Setif",
+    "date": "2025-10-11",
+    "duration_hours": 8,
+    "sessions_days": 1
+  },
+  {
+    "title": "Introduction to Design Thinking: A Creative Workshop",
+    "description": "A 3-hour interactive intro to the five stages of Design Thinking with real-world exercises.",
+    "speakers": ["Safie Zegtouf"],
+    "partner": "SDG member",
+    "date": "2025-10-12",
+    "duration_hours": 3,
+    "sessions_days": 1
+  },
+  {
+    "title": "UI/UX Design Fundamentals: Crafting User-Centric Experiences",
+    "description": "A 6-hour, 2-session workshop on UI/UX principles, from research to prototyping and testing.",
+    "speakers": ["Ghaithe Sofian"],
+    "partner": "SDG member",
+    "date": "2025-10-13",
+    "duration_hours": 6,
+    "sessions_days": 2
+  },
+  {
+    "title": "Introduction to Front-End: Build Your First Web Pages with HTML & CSS",
+    "description": "A 6-hour, 2-session beginner’s guide to building web pages using HTML and CSS.",
+    "speakers": ["Chiheb Abiza"],
+    "partner": "IntellectSoft dz",
+    "date": "2025-10-15",
+    "duration_hours": 6,
+    "sessions_days": 2
+  },
+  {
+    "title": "Getting started with LaTex Typesetting",
+    "description": "A 3-hour beginner workshop on creating professional documents with LaTeX.",
+    "speakers": ["Ghozlane Hadri"],
+    "partner": "IntellectSoft dz",
+    "date": "2025-10-18",
+    "duration_hours": 3,
+    "sessions_days": 1
+  },
+  {
+    "title": "Getting started with Python Programming and Data Structures",
+    "description": "A 3-hour intro to Python basics and essential data structures.",
+    "speakers": ["Ghozlane Hadri"],
+    "partner": "IntellectSoft dz",
+    "date": "2025-10-19",
+    "duration_hours": 3,
+    "sessions_days": 1
+  },
+  {
+    "title": "Getting Started with Django: Build Your First Dynamic Web App",
+    "description": "A 3-hour beginner workshop to create your first dynamic web app using Django.",
+    "speakers": ["Faycal Zetoutou"],
+    "partner": "IntellectSoft dz",
+    "date": "2025-10-20",
+    "duration_hours": 3,
+    "sessions_days": 1
+  },
+  {
+    "title": "La gestion de projet et la certification CAPM® : un levier pour l'avenir des jeunes",
+    "description": "Un atelier de 3 heures sur la gestion de projet et la certification CAPM® pour les jeunes professionnels.",
+    "speakers": ["Yasmina Lamri Adel"],
+    "partner": "IntellectSoft dz",
+    "date": "2025-10-21",
+    "duration_hours": 3,
+    "sessions_days": 1
+  },
+  {
+    "title": "MERN Stack Development Bootcamp: Your Path to Full-Stack Mastery",
+    "description": "An 18-hour, 6-session bootcamp covering MERN stack, APIs, state management, and deployment.",
+    "speakers": ["Moataz Chaaban"],
+    "partner": null,
+    "date": "2025-10-22",
+    "duration_hours": 18,
+    "sessions_days": 6
+  },
+  {
+    "title": "Mobile Development Mastery with Flutter",
+    "description": "An 18-hour, 6-session workshop on building cross-platform mobile apps with Flutter.",
+    "speakers": ["Brahim Mihoubi", "Malek Lamara"],
+    "partner": "SDG member",
+    "date": "2025-10-29",
+    "duration_hours": 18,
+    "sessions_days": 6
+  },
+  {
+    "title": "Entrepreneurial Mindset: Strategies for Success",
+    "description": "A 9-hour, 3-session workshop on innovation, leadership, and risk management for entrepreneurs.",
+    "speakers": ["Nesda Speakers"],
+    "partner": "Nesda",
+    "date": "2025-11-05",
+    "duration_hours": 9,
+    "sessions_days": 3
+  },
+  {
+    "title": "Effective Closing Strategies: Achieving Sales Excellence",
+    "description": "A 9-hour, 3-session workshop on mastering closing techniques and communication in sales.",
+    "speakers": ["Mabrouki Mohammed"],
+    "partner": "SDG member",
+    "date": "2025-11-09",
+    "duration_hours": 9,
+    "sessions_days": 3
+  },
+  {
+    "title": "Cybersecurity Fundamentals: Protecting Your Digital Assets",
+    "description": "A 9-hour, 3-session intro to cybersecurity threats, risk management, and data protection.",
+    "speakers": ["Taki Eddine"],
+    "partner": "SDG member",
+    "date": "2025-11-12",
+    "duration_hours": 9,
+    "sessions_days": 3
+  },
+  {
+    "title": "Mastering E-commerce: From Concept to Customer",
+    "description": "A 9-hour, 3-session workshop covering e-commerce fundamentals, payments, and digital marketing.",
+    "speakers": ["Lamiri Yaakoub"],
+    "partner": "SDG member",
+    "date": "2025-11-16",
+    "duration_hours": 9,
+    "sessions_days": 3
+  }
+]
+    """,
     "event speakers": "Berrimi Mohammed, Skander Hamdi, Taki Torki, Akram Chennani, Brahim Mihoubi, Lamara Malek, Yacine Seha, Ztoutou Faycrl, Ghozlen Hadri, and others to be announced.",
 
     "event partners": "UFAS1, Faculty of Sciences UFAS1, Redjem Studio, GDG Setif, IntellectSoft DZ, Algerie Telecom, Nesda",
@@ -130,74 +294,87 @@ event_info = {
 
 event_static_replay = {
     # Greetings
-    "hi": "Hello! I'm the official chatbot for SDG Events. How can I help you learn about our upcoming event today?",
-    "hello": "Hello! I'm the official chatbot for SDG Events. What would you like to know about our event?",
-    "hey": "Hey there! I'm here to provide information about SDG's upcoming event. What would you like to know?",
-    "good morning": "Good morning! Welcome to SDG Events. How can I assist you with event information today?",
-    "good afternoon": "Good afternoon! I'm the SDG Events chatbot. What would you like to know about our event?",
-    "good evening": "Good evening! I'm here to help with any questions about SDG's upcoming event. What would you like to know?",
+    "hi": "Hello! I'm the official chatbot for the SDG Skills Lab (SSL) Event. I can provide event information and register you for workshops. How can I help you today?",
+    "hello": "Hello! Welcome to the SDG Skills Lab Event assistant. I can help with event details and workshop registration. What would you like to know?",
+    "hey": "Hey there! I'm here to assist with SSL event information and workshop registration. How can I help you?",
+    "good morning": "Good morning! I'm the SSL Event chatbot. I can provide event details or register you for available workshops. What do you need?",
+    "good afternoon": "Good afternoon! Welcome to the SSL Event assistant. I can help with information or workshop registration. How may I assist you?",
+    "good evening": "Good evening! I'm here to help with SSL event information and workshop registration. What would you like to know?",
     
     # How are you
-    "how are you": "I'm doing great and ready to help you with information about SDG's event! What would you like to know?",
-    "how are you doing": "I'm functioning well, thank you! I'm here to provide details about SDG's upcoming event. How can I help you today?",
-    "how's it going": "Everything's going well! I'm ready to help you learn about SDG's event. What information do you need?",
+    "how are you": "I'm doing great and ready to help with SSL event information and workshop registration! What can I do for you?",
+    "how are you doing": "I'm functioning well, thank you! I'm here for SSL event details and workshop registration. How can I assist you today?",
+    "how's it going": "Everything's going well! I'm ready to help with SSL event information or register you for workshops. What do you need?",
     
     # Thank you responses
-    "thank you": "You're welcome! If you have more questions about the event, feel free to ask.",
-    "thanks": "You're welcome! Do you want to know more about the event’s schedule, speakers, or location?",
-    "thank you very much": "You're very welcome! I'm always here to help with SDG event-related questions.",
+    "thank you": "You're welcome! Need more event info or want to register for a workshop?",
+    "thanks": "You're welcome! I can provide more event details or help with workshop registration if needed.",
+    "thank you very much": "You're very welcome! I'm always here for SSL event information and workshop registration.",
     
     # Goodbye
-    "bye": "Goodbye! Feel free to come back anytime if you have more questions about the event.",
-    "goodbye": "Goodbye! Thank you for your interest in our event. Contact us anytime for more details!",
-    "see you": "See you later! Don't hesitate to return if you want more event information.",
-    "see you later": "See you later! Feel free to return with any event-related questions.",
+    "bye": "Goodbye! Feel free to return for SSL event information or workshop registration anytime.",
+    "goodbye": "Goodbye! Thank you for your interest in the SSL event. Come back anytime for info or registration!",
+    "see you": "See you later! Don't hesitate to return for event details or workshop registration.",
+    "see you later": "See you later! I'm always here for SSL event information and workshop registration.",
     
-    # Basic questions
-    "what can you do": "I can provide information about SDG's event including its focus, objectives, schedule, speakers, location, and how to participate. What would you like to know?",
-    "what is your purpose": "My purpose is to provide accurate information about SDG's upcoming event at the Skills Center. How can I assist you?",
-    "who are you": "I'm the official chatbot for SDG Events. I'm here to answer your questions about our upcoming event. What would you like to know?",
+    # Basic questions about bot capabilities
+    "what can you do": "I can provide SSL event information (schedule, speakers, location) and register you for available workshops. I can also answer questions about event focus and objectives. What interests you?",
+    "what is your purpose": "My purpose is to provide SSL event information and register participants for workshops. I'm your official SSL event assistant. How can I help?",
+    "who are you": "I'm the official chatbot for the SDG Skills Lab (SSL) Event. I provide event information and handle workshop registration. What do you need help with?",
     
     # Help requests
-    "help": "I'm here to help you learn about SDG's event! You can ask me about the schedule, speakers, partners, location, or focus. What interests you?",
-    "i need help": "I'm happy to help! I can provide details about the event’s objectives, timing, and participants. What do you want to know?",
+    "help": "I'm here to help! I can provide SSL event information, tell you about workshops, or register you for available sessions. What would you like to do?",
+    "i need help": "Happy to help! I can share event details, explain workshop options, or register you for sessions. What do you need?",
+    
+    # Registration related
+    "register": "Great! I can register you for available workshops this week. Would you like to see the current workshop options or do you have a specific workshop in mind?",
+    "registration": "I handle workshop registration for the SSL event. Would you like to see available workshops or register for a specific session?",
+    "sign up": "Perfect! I can sign you up for SSL event workshops. Would you like to see this week's available options?",
+    "enroll": "I can enroll you in SSL event workshops. Would you like to see available sessions or register for a specific workshop?",
+    
+    # Workshop related
+    "workshop": "I can provide information about SSL event workshops and register you for available sessions. Would you like to see this week's options?",
+    "workshops": "The SSL event features various IT and Entrepreneurship workshops. I can show you available sessions or register you directly. What would you prefer?",
+    "sessions": "The SSL event runs daily sessions from 1:00 PM to 5:00 PM. I can show you available workshops or register you for specific sessions. What interests you?",
     
     # Sorry/Excuse me
-    "sorry": "No problem at all! How can I assist you with information about SDG's event?",
-    "excuse me": "Yes, how can I help you with information about SDG's event?",
+    "sorry": "No problem at all! How can I help with SSL event information or workshop registration?",
+    "excuse me": "Yes, how can I assist you with SSL event details or workshop registration?",
     
     # Nice to meet you
-    "nice to meet you": "Nice to meet you too! I'm excited to help you learn about our upcoming event. What would you like to know?",
-    "pleased to meet you": "Pleased to meet you as well! I'm here to provide information about SDG’s event. How can I assist you today?",
+    "nice to meet you": "Nice to meet you too! I'm excited to help with SSL event information or workshop registration. What would you like to do?",
+    "pleased to meet you": "Pleased to meet you as well! I'm here for SSL event assistance and workshop registration. How can I help?",
     
-    # Event-related common questions
-    "what is the event": "The event is focused on IT and Entrepreneurship, held at the Skills Center from 29 September to 22 November 2025 (daily 13:00 to 17:00). Would you like to know about the schedule or speakers?",
-    "tell me about the event": "This event empowers students and enthusiasts in IT and Entrepreneurship. It provides practical knowledge, networking opportunities, and focuses on sustainable development goals. Do you want details on the speakers or the schedule?",
-    "event information": "I can provide information about the event’s focus, objectives, target audience, schedule, speakers, partners, and location. What interests you most?",
-    "event details": "The event runs from 29 September to 22 November 2025 at the Skills Center, daily from 13:00 to 17:00. Would you like me to tell you more about the schedule or speakers?",
+    # Event-related questions
+    "what is the event": "The SSL event focuses on IT and Entrepreneurship, running daily from 1:00 PM to 5:00 PM at the Skills Center (Sep 29 - Nov 22, 2025). I can also register you for workshops. Want to know more?",
+    "tell me about the event": "The SSL event empowers students in IT and Entrepreneurship through practical workshops and networking. I can provide details or register you for sessions. What interests you?",
+    "event information": "I can share SSL event details: focus, schedule, speakers, location, and workshops. I also handle workshop registration. What would you like to know?",
+    "event details": "The SSL event runs Sep 29 - Nov 22, 2025, at Skills Center (1:00-5:00 PM daily). I can provide more details or register you for workshops. What do you need?",
     
-    # Activities and services
-    "what is the focus": "The event focuses on IT and Entrepreneurship, with an emphasis on innovation and community building.",
-    "what are the objectives": "The event’s objectives are to give knowledge in both IT and Entrepreneurship, and to develop practical skills for real-world challenges.",
-    "who is the audience": "The main audience is university students and anyone interested in IT and Entrepreneurship.",
-    "where is the event": "The event is located at the Skills Center.",
-    "when is the event": "The event runs from 29 September to 22 November 2025, every day from 13:00 to 17:00.",
-    "who are the speakers": "Speakers include Berrimi Mohammed, Skander Hamdi, Taki Torki, Akram Chennani, Brahim Mihoubi, Lamara Malek, Yacine Seha, Ztoutou Faycrl, Ghozlen Hadri, and more.",
-    "who are the partners": "Partners include UFAS1, Sciences Faculty UFAS1, Redjem Studio, GDG Setif, IntellectSoft DZ, Algerie Telecom, and Nesda.",
+    # Specific event aspects
+    "schedule": "The SSL event runs daily from 1:00 PM to 5:00 PM, featuring various workshops. I can show you this week's available workshops for registration. Interested?",
+    "speakers": "SSL event features expert speakers in IT and Entrepreneurship. I can provide speaker details or register you for their workshops. What would you prefer?",
+    "location": "The SSL event is held at the Skills Center. I can provide more location details or register you for workshops. How can I help?",
+    "when": "The SSL event runs from September 29 to November 22, 2025, daily from 1:00-5:00 PM. Want to register for this week's workshops?",
+    "where": "The SSL event is at the Skills Center. I can provide more details or register you for available workshops. What would you like?",
     
     # General inquiries
-    "more information": "I can tell you about the event’s focus, objectives, target audience, speakers, partners, schedule, and location. What do you want to know?",
-    "tell me more": "I'd be happy to! You can ask about the event’s focus, objectives, speakers, partners, schedule, or location. What interests you?",
-    "what else": "You can ask me about the event’s focus, target audience, objectives, schedule, speakers, or partners. Which one would you like?",
-    "anything else": "Yes! I can provide details about the event’s focus, objectives, schedule, speakers, and more. Which part do you want to know more about?",
+    "more information": "I can share SSL event focus, objectives, schedule, speakers, and workshop options. I also handle registration. What specific information do you need?",
+    "tell me more": "I'd be happy to! I can discuss event details, workshop options, or register you for workshops. What interests you most?",
+    "what else": "I can provide event information, show workshop schedules, or register you for available workshops. What would you like to explore?",
+    "anything else": "Yes! I offer event information and workshop registration services. Would you like details about specific topics or want to register?",
     
-    # What chatbot does
-    "what you do": "I provide information about SDG’s upcoming event — including its focus, objectives, audience, schedule, speakers, and partners. What would you like to know?",
-    "what do you do": "I provide event information about SDG’s activities at the Skills Center. I can tell you about the focus, schedule, speakers, and objectives. What do you want to know?",
-    "what can you tell me": "I can tell you about the event’s focus, audience, speakers, schedule, and objectives. What are you interested in?",
-    "what are you for": "I'm here to provide accurate information about SDG’s event happening from 29 September to 22 November 2025 at the Skills Center. What would you like to know?",
+    # Chatbot capabilities
+    "what you do": "I provide SSL event information and register participants for workshops. I can answer questions about schedule, speakers, and objectives. How can I assist?",
+    "what do you do": "I'm the SSL event assistant - I provide event information and handle workshop registration. I can help with schedules, details, or sign you up for sessions. What do you need?",
+    "what can you tell me": "I can share SSL event information (focus, schedule, speakers, objectives) and register you for available workshops. What would you like to know?",
+    "what are you for": "I'm here to assist with the SSL event - providing information and registering participants for workshops (Sep 29 - Nov 22, 2025). How can I help you today?",
+    
+    # Quick responses for common needs
+    "info": "I provide SSL event information and workshop registration. Want event details or to register for a session?",
+    "details": "I can share SSL event details and register you for workshops. What specific information do you need?",
+    "about": "The SSL event focuses on IT and Entrepreneurship with practical workshops. I can provide details or register you. What interests you?",
 }
-
 podcast_info= {
 
 "Podcast SDG focus":"acquiring knowldge from diverse local experts in several fields",

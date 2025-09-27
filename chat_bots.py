@@ -82,4 +82,4 @@ async def EVENT_chatbot(msg: Massage)->Massage:
     workshops = ''
     for workshop in await get_available_to_register_workshops():
         workshops += f"- {workshop['title']} (ID: {workshop['id']})\n"
-    return await chatbot(msg, EVENT_SYSTEM_INSTRUCTION + 'available workshops: \n' + workshops, 'Event', event_info,event_static_replay,[registration_declarations])
+    return await chatbot(msg, EVENT_SYSTEM_INSTRUCTION + '\n' + workshops, 'SDG skills lab event', event_info,event_static_replay,[registration_declarations])
