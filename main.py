@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from schemas import Massage
 from chat_bots import SDG_chatbot, Podcast_chatbot, EVENT_chatbot
@@ -39,24 +39,24 @@ app.add_middleware(
 
 @app.get("/")
 @limiter.limit("100/hour")
-def read_root():
+def read_root(request: Request):
     return {"Hello": "World"}
 
 
 @app.post("/api/chatbot/sdg")
 @limiter.limit("100/hour")
 @limiter.limit("10/minute")
-async def sdg_chatbot(msg: Massage)-> Massage:
+async def sdg_chatbot(request: Request, msg: Massage)-> Massage:
     return await SDG_chatbot(msg)
 
 @app.post("/api/chatbot/event")
 @limiter.limit("100/hour")
 @limiter.limit("10/minute")
-async def event_chatbot(msg: Massage)-> Massage:
+async def event_chatbot(request: Request, msg: Massage)-> Massage:
     return await EVENT_chatbot(msg)
 
 @app.post("/api/chatbot/podcast")
 @limiter.limit("100/hour")
 @limiter.limit("10/minute")
-async def podcast_chatbot(msg: Massage)-> Massage:
+async def podcast_chatbot(request: Request, msg: Massage)-> Massage:
     return await Podcast_chatbot(msg)
