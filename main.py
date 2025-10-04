@@ -13,17 +13,17 @@ limiter = Limiter(key_func=get_remote_address)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Load the ML model
+    Models_manager.load_state()
     
     yield
-    # Clean up the ML models and release the resources
+
     Models_manager.save_state()
 app = FastAPI(lifespan=lifespan)
 
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# Secure CORS - replace the ["*"] with your domains
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -38,7 +38,7 @@ app.add_middleware(
 
 
 @app.get("/")
-@limiter.limit("100/hour")
+@limiter.limit("10/hour")
 def read_root(request: Request):
     return {"Hello": "World"}
 

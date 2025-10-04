@@ -32,7 +32,7 @@ async def sll_event_registration(first_name:str, last_name:str, email:str, phone
         }
     
         print(f"Sending registration request with payload: {payload}")
-        response = requests.post(f"{API_URL}/api/registrations/", json=payload)
+        response = requests.post(f"{API_URL}/api/registrations/", json=payload,headers={"Content-Type": "application/json", 'X-Chatbot-Key': os.getenv("CHATBOT_API_KEY")})
         print(f"Registration response: {response.json()}")
         response.raise_for_status()
         return response.json().get("workshop_name", "the workshop")
