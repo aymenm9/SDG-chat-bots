@@ -29,7 +29,7 @@ app.add_middleware(
     allow_origins=[
         "https://skills-lab.setif-developers-club.com", 
         "https://sdg-chat-bots-server.onrender.com",
-        "http://localhost:3000",  # for development
+        "http://localhost:5173",  
     ],
     allow_credentials=True,
     allow_methods=["GET", "POST"],
